@@ -1,12 +1,84 @@
-*.class
+import java.util.*;
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+class myThread implements Runnable
+{
+	int n;
+	
+	myThread(int n)
+	{
+		this.n=n;
+	}
+	public void run()
+	{
+		for(int i=1;i<=10;i++)
+			System.out.println(n+" * "+i+" = "+n*i);
+	}
+}
+class myThread1 implements Runnable
+{
+	int n;
+	
+	myThread1(int n)
+	{
+		this.n=n;
+	}
+	public void run()
+	{
+		for(int i=1;i<=10;i++)
+			System.out.println(n+" * "+i+" = "+n*i);
+	}
+}
+class myThread2 implements Runnable
+{
+	int n;
+	
+	myThread2(int n)
+	{
+		this.n=n;
+	}
+	public void run()
+	{
+		for(int i=1;i<=10;i++)
+			System.out.println(n+" * "+i+" = "+n*i);
+	}
+}
+class myThread3 implements Runnable
+{
+	int n;
+	
+	myThread3(int n)
+	{
+		this.n=n;
+	}
+	public void run()
+	{
+		for(int i=1;i<=10;i++)
+			System.out.println(n+" * "+i+" = "+n*i);
+	}
+}
+class test
+{
+	public static void main(String args[]) throws InterruptedException
+	{
+		int n1,n2,n3,n4;
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter four number for tables   ");
+		n1=in.nextInt();
+		n2=in.nextInt();
+		n3=in.nextInt();
+		n4=in.nextInt();
+		myThread r=new myThread(n1);
+		Thread t=new Thread(r);
+		t.start();
+		t.join();
+		myThread1 r1=new myThread1(n2);
+		Thread t1=new Thread(r1);
+		t1.start();t1.join();
+		myThread2 r2=new myThread2(n3);
+		Thread t2=new Thread(r2);
+		t2.start();t2.join();
+		myThread3 r3=new myThread3(n4);
+		Thread t3=new Thread(r3);
+		t3.start();
+	}
+}
